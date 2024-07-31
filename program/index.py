@@ -1,11 +1,5 @@
-temperatura = 38  # Temperatura teste
+temperatura = 40  # Temperatura teste
+status_paciente = 1 # Se Pressupõem que o paciente ja esta com febre
 
-
-def teste_febre(temp):
-    if temp > 38:  # Paciente com febre
-        return 1
-    else:  # Paciente com temperatura normal
-        return 0
-
-
-status_paciente = teste_febre(temperatura)
+if temp < 38:  # Paciente com temperatura normal
+    status_paciente = 0
