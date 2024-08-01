@@ -1,4 +1,3 @@
-LI $t0, 0000000000000000
 # Initialize $t0
 LI $t0, 0000000000000000  # Load 0 into $t0
 
