@@ -1,21 +1,25 @@
-// We chose to not to allocate much more RAM than 
-// what was needed to run our instructions, which were few.
-//
-// For now, we're manually setting instructions in RAM,
-// but ideally we should use readmemh() or readmemb().
-//
-// Also... Are we sure we want to divide the address by 4
-// before accessing an instruction in RAM?
-
 module instruction_memory (
-    input [31:0] adress,
+    input [31:0] address,
     output [31:0] instruction
 );    
     reg [31:0] RAM[63:0];
 
     initial begin
-        RAM[0] = 32'h8C22000C;
-        RAM[1] = 32'h00000000;
+        RAM[0]  = 32'b001000_00000_01000_0000000000000000; // 0x20080000
+        RAM[1]  = 32'b001000_00000_01001_0000000000101000; // 0x20090028
+        RAM[2]  = 32'b101011_01000_01001_0000000000000000; // 0xAD290000
+        RAM[3]  = 32'b001000_00000_01001_0000000000100110; // 0x20090026
+        RAM[4]  = 32'b101011_01000_01001_0000000000000100; // 0xAD290004
+        RAM[5]  = 32'b100011_01000_10000_0000000000000000; // 0x8D200000
+        RAM[6]  = 32'b100011_01000_10001_0000000000000100; // 0x8D210004
+        RAM[7]  = 32'b000000_10000_10001_10010_00000_101010; // 0x0212202A
+        RAM[8]  = 32'b000100_10010_01000_0000000000000010; // 0x11280002
+        RAM[9]  = 32'b001000_00000_01001_0000000000000001; // 0x20090001
+        RAM[10] = 32'b101011_01000_01001_0000000000001100; // 0xAD29000C
+        RAM[11] = 32'b000010_0000000000000000_0000000000001001; // 0x0800000A
+        RAM[12] = 32'b001000_00000_01001_0000000000000000; // 0x20090000
+        RAM[13] = 32'b101011_01000_01001_0000000000001100; // 0xAD29000C
+        RAM[14] = 32'b100011_01000_10011_0000000000001100; // 0x8D33000C
     end
 
   assign instruction = RAM[address / 4];
