@@ -10,3 +10,4 @@ module program_counter (
     
     assign pc_out = data; //conects a wire to the output of the data register 
 endmodule
+
