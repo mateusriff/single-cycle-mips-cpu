@@ -1,5 +1,3 @@
-/// utilizei o input do ALU control com 3 bits como ta no livro mas to na duvida
-/// também deixei os inputs como A e B mesmo diferente da referência scrA e scrB pra ficar mais fácil
 module ALU (
     input [2:0] ALU_Control,
     input [31:0] A, B,
